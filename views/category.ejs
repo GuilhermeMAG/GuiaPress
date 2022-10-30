@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs') %>
+    <%- include('partials/homenavbar.ejs') %>
+
+        <body>
+            <div class="container">
+                <hr>
+                <div class="form-check form-switch">
+                    <input type="checkbox" class="form-check-input" id="darkSwitch" />
+                    <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+                </div>
+                <script src="dark-mode-switch.min.js"></script>
+                <hr>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>
+                            <%= category.title %>
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <%- category.body %>
+                    </div>
+                    <br>
+                    <a href="/" class="btn btn-primary">Voltar</a>
+                </div>
+            </div>
+        </body>
+        <%- include('partials/footer.ejs') %>

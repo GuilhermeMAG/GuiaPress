@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs') %>
+    <%- include('partials/navbar.ejs') %>
+
+        <body>
+            <div class="container">
+                <hr>
+                <div class="form-check form-switch">
+                    <input type="checkbox" class="form-check-input" id="darkSwitch" />
+                    <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+                </div>
+                <script src="dark-mode-switch.min.js"></script>
+                <hr>
+                <div class="jumbotron form-control bg-light ">
+
+                    <h1 class="display-4">Bem vindo!</h1>
+
+                    <p class="lead">Este é um blog simples feito em node.js com bootstrap</p>
+
+                    <hr class="my-4">
+
+                    <p>Blog feito utilizando as tecnologias: node.js, express, bodyParser, Sequelize, ejs, slugify e mysql2.</p>
+
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Leia mais...</a>
+
+                </div>
+                <hr>
+
+            </div>
+        </body>
+        <%- include('partials/footer.ejs') %>
