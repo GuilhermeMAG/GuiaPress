@@ -33,3 +33,13 @@
     background-color: #111 !important;
     color: #eee;
 }
+
+[data-theme="dark"] .table-bordered {
+    background-color: #111 !important;
+    color: #eee;
+}
+
+[data-theme="dark"] .card {
+    background-color: rgb(45, 43, 43) !important;
+    color: #eee;
+}

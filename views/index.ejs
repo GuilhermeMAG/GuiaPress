@@ -3,47 +3,41 @@
 
         <body>
             <div class="container">
-                <hr>
-                <div class="form-check form-switch">
-                    <input type="checkbox" class="form-check-input" id="darkSwitch" />
-                    <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
-                </div>
-                <script src="dark-mode-switch.min.js"></script>
-                <hr>
-                <div class="jumbotron form-control bg-light ">
+                <%- include('partials/darkSwitch.ejs') %>
+                    <div class="jumbotron form-control bg-light ">
 
-                    <h1 class="display-4">Bem vindo!</h1>
+                        <h1 class="display-4">Bem vindo!</h1>
 
-                    <p class="lead">Este é um blog simples feito em node.js com bootstrap</p>
+                        <p class="lead">Este é um blog simples feito em node.js com bootstrap</p>
 
-                    <hr class="my-4">
+                        <hr class="my-4">
 
-                    <p>Blog feito utilizando as tecnologias: node.js, express, bodyParser, Sequelize, ejs, slugify e mysql2.</p>
+                        <p>Blog feito utilizando as tecnologias: node.js, express, bodyParser, Sequelize, ejs, slugify e mysql2.</p>
 
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Leia mais...</a>
+                        <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Leia mais...</a> -->
 
-                </div>
-                <hr>
-                <% articles.forEach(article => { %>
-                    <br>
-                    <div class="card">
-                        <div class="card-header">
-                            <h2>
-                                <%= article.title %>
-                            </h2>
-                        </div>
-                        <div class="card-body">
-                            <a href="/<%= article.slug %>" class="btn btn-success">Ler artigo</a>
-                        </div>
                     </div>
-                    <% }) %>
+                    <hr>
+                    <% articles.forEach(article => { %>
                         <br>
-                        <div class="row">
-                            <div class="col col-12">
-                                <a href="/articles/page/2" style="float: right;">> Next ></a><br>
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>
+                                    <%= article.title %>
+                                </h2>
+                            </div>
+                            <div class="card-body">
+                                <a href="/<%= article.slug %>" class="btn btn-success">Ler artigo</a>
                             </div>
                         </div>
-                        <br>
+                        <% }) %>
+                            <br>
+                            <div class="row">
+                                <div class="col col-12">
+                                    <a href="/articles/page/2" style="float: right;">> Next ></a><br>
+                                </div>
+                            </div>
+                            <br>
             </div>
         </body>
         <%- include('partials/footer.ejs') %>

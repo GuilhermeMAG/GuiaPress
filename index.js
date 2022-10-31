@@ -141,6 +141,6 @@ app.get('/category/:slug', (req, res) => {
     })
 });
 
-app.listen(8080, () => {
-    console.log(`Server started on http://localhost:${8080}`)
+app.listen(80, () => {
+    console.log(`Server started on http://localhost:${80}`)
 });
