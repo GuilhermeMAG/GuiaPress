@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const connection = require('./database/database');
 const session = require('express-session');
+const port = 90
 
 const CategoriesController = require('./categories/CategoriesController');
 const ArticlesController = require('./articles/ArticlesController');
@@ -141,6 +142,6 @@ app.get('/category/:slug', (req, res) => {
     })
 });
 
-app.listen(80, () => {
-    console.log(`Server started on http://localhost:${80}`)
+app.listen(port, () => {
+    console.log(`Server started on http://localhost:${port}`)
 });
