@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const connection = require('./database/database');
 const session = require('express-session');
-const port = 90
+const port = 81
 
 const CategoriesController = require('./categories/CategoriesController');
 const ArticlesController = require('./articles/ArticlesController');
