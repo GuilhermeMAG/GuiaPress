@@ -1,5 +1,5 @@
 {
-    "name": "guiapress",
+    "name": "guipress",
     "version": "1.0.0",
     "description": "Blog com node, express, bodyParser, Sequelize, nodemon, ejs, slugify e mysql2",
     "main": "index.js",
