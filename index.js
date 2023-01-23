@@ -3,7 +3,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const connection = require('./database/database');
 const session = require('express-session');
-const port = 3000
+const process = require('dotenv/config');
+const port = process.env.PORT
 
 const CategoriesController = require('./categories/CategoriesController');
 const ArticlesController = require('./articles/ArticlesController');
