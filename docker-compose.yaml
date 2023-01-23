@@ -1,0 +1,28 @@
+services:
+  db:
+    build: ./database/
+    restart: always
+    env_file:
+      - ./config/db.env
+    ports:
+      - "3306:3306"
+    networks:
+      - dockercompose
+    volumes:
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
+
+  app:
+    depends_on: 
+      - db
+    build: ./
+    ports:
+      - "3000:3000"
+    restart: always
+    networks: 
+      - dockercompose
+
+networks:
+  dockercompose:
+volumes:
+  db_data: {}
