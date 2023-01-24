@@ -1,52 +1,46 @@
 <%- include('../../partials/header.ejs') %>
     <%- include('../../partials/navbar.ejs') %>
         <div class="container">
-            <hr>
-            <div class="form-check form-switch">
-                <input type="checkbox" class="form-check-input" id="darkSwitch" />
-                <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
-            </div>
-            <hr>
-            <script src="dark-mode-switch.min.js"></script>
-            <div class="card">
-                <div class="card-header">
-                    <h2>Usuários</h2>
-                    <a class="btn btn-success" href="/admin/users/create">Criar novo usuário</a>
+            <%- include('../../partials/darkSwitch.ejs') %>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Usuários</h2>
+                        <a class="btn btn-success" href="/admin/users/create">Criar novo usuário</a>
+                    </div>
                 </div>
-            </div>
-            <hr>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>nome</th>
-                        <th>email</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% user.forEach(user => { %>
+                <hr>
+                <table class="table table-bordered">
+                    <thead>
                         <tr>
-                            <th>
-                                <%= user.id %>
-                            </th>
-                            <th>
-                                <%= user.name %>
-                            </th>
-                            <th>
-                                <%= user.email %>
-                            </th>
-                            <th>
-                                <a href="/admin/users/edit/<%= user.id %>" class="btn btn-warning">Editar</a>
-                                <form method="POST" action="/users/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
-                                    <input type="hidden" name="id" value="<%= user.id %>">
-                                    <button class="btn btn-danger">Deletar</button>
-                                </form>
-                            </th>
+                            <th>Id</th>
+                            <th>nome</th>
+                            <th>email</th>
+                            <th>Ações</th>
                         </tr>
-                        <% }) %>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <% user.forEach(user => { %>
+                            <tr>
+                                <th>
+                                    <%= user.id %>
+                                </th>
+                                <th>
+                                    <%= user.name %>
+                                </th>
+                                <th>
+                                    <%= user.email %>
+                                </th>
+                                <th>
+                                    <a href="/admin/users/edit/<%= user.id %>" class="btn btn-warning">Editar</a>
+                                    <form method="POST" action="/users/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
+                                        <input type="hidden" name="id" value="<%= user.id %>">
+                                        <button class="btn btn-danger">Deletar</button>
+                                    </form>
+                                </th>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
         </div>
         <%- include('../../partials/footer.ejs') %>
             <script>
