@@ -1,19 +1,19 @@
 <%- include('../../partials/header.ejs') %>
     <%- include('../../partials/navbar.ejs') %>
         <div class="container">
-            <hr>
-            <div class="card">
-                <div class="card-header">
-                    <h2>Edição de usuário</h2>
+            <%- include('../../partials/darkSwitch.ejs') %>
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h2>Edição de usuário</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="/users/update" method="POST">
+                            <input class="form-control" type="text" name="name" placeholder="" value="<%= user.name %>"><br>
+                            <input class="form-control" type="password" name="password" placeholder="Digite sua nova senha:"><br>
+                            <input type="hidden" name="id" value="<%= user.id %>">
+                            <button class="btn btn-success ">Atualizar</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <form action="/users/update" method="POST">
-                        <input class="form-control" type="text" name="name" placeholder="" value="<%= user.name %>"><br>
-                        <input class="form-control" type="password" name="password" placeholder="Digite sua nova senha:"><br>
-                        <input type="hidden" name="id" value="<%= user.id %>">
-                        <button class="btn btn-success ">Atualizar</button>
-                    </form>
-                </div>
-            </div>
         </div>
         <%- include('../../partials/footer.ejs') %>

@@ -1,26 +1,20 @@
 <%- include('../../partials/header.ejs') %>
-
     <div class="container">
-        <hr>
-        <div class="form-check form-switch">
-            <input type="checkbox" class="form-check-input" id="darkSwitch" />
-            <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
-        </div>
-        <script src="dark-mode-switch.min.js"></script>
-        <hr>
-        <div class="card mt-4">
-            <div class="card-header">
-                <h2>Login de Admin</h2>
+        <%- include('../../partials/darkSwitch.ejs') %>
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h2>Login de Admin</h2>
+                    <a class="btn btn-success" href="/admin/users/create">Criar novo usuário</a>
+                </div>
+                <div class="card-body">
+                    <form action="/authenticate" method="POST">
+                        <input class="form-control" type="email" name="email" placeholder="email@exemplo.com">
+                        <input class="form-control" type="password" name="password" placeholder="******"><br>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success">Logar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="card-body">
-                <form action="/authenticate" method="POST">
-                    <input class="form-control" type="email" name="email" placeholder="email@exemplo.com">
-                    <input class="form-control" type="password" name="password" placeholder="******"><br>
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-success">Logar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
     </div>
     <%- include('../../partials/footer.ejs') %>
