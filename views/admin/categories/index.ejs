@@ -1,52 +1,47 @@
 <%- include('../../partials/header.ejs') %>
     <%- include('../../partials/navbar.ejs') %>
         <div class="container">
-            <hr>
-            <div class="form-check form-switch">
-                <input type="checkbox" class="form-check-input" id="darkSwitch" />
-                <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
-            </div>
-            <hr>
-            <script src="dark-mode-switch.min.js"></script>
-            <div class="card">
-                <div class="card-header">
-                    <h2>Categorias</h2>
-                    <a class="btn btn-success" href="/admin/categories/new">Criar nova categoria</a>
+            <%- include('../../partials/darkSwitch.ejs') %>
+                <script src="dark-mode-switch.min.js"></script>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Categorias</h2>
+                        <a class="btn btn-success" href="/admin/categories/new">Criar nova categoria</a>
+                    </div>
                 </div>
-            </div>
-            <hr>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Título</th>
-                        <th>Slug</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% categories.forEach(category=>{ %>
+                <hr>
+                <table class="table table-bordered">
+                    <thead>
                         <tr>
-                            <th>
-                                <%= category.id %>
-                            </th>
-                            <th>
-                                <%= category.title %>
-                            </th>
-                            <th>
-                                <%= category.slug %>
-                            </th>
-                            <th>
-                                <a href="/admin/categories/edit/<%= category.id %>" class="btn btn-warning">Editar</a>
-                                <form method="POST" action="/categories/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
-                                    <input type="hidden" name="id" value="<%= category.id %>">
-                                    <button class="btn btn-danger">Deletar</button>
-                                </form>
-                            </th>
+                            <th>Id</th>
+                            <th>Título</th>
+                            <th>Slug</th>
+                            <th>Ações</th>
                         </tr>
-                        <% }) %>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <% categories.forEach(category=>{ %>
+                            <tr>
+                                <th>
+                                    <%= category.id %>
+                                </th>
+                                <th>
+                                    <%= category.title %>
+                                </th>
+                                <th>
+                                    <%= category.slug %>
+                                </th>
+                                <th>
+                                    <a href="/admin/categories/edit/<%= category.id %>" class="btn btn-warning">Editar</a>
+                                    <form method="POST" action="/categories/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
+                                        <input type="hidden" name="id" value="<%= category.id %>">
+                                        <button class="btn btn-danger">Deletar</button>
+                                    </form>
+                                </th>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
         </div>
         <%- include('../../partials/footer.ejs') %>
             <script>
