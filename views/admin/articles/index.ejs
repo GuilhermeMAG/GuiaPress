@@ -1,56 +1,50 @@
 <%- include('../../partials/header.ejs') %>
     <%- include('../../partials/navbar.ejs') %>
         <div class="container">
-            <hr>
-            <div class="form-check form-switch">
-                <input type="checkbox" class="form-check-input" id="darkSwitch" />
-                <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
-            </div>
-            <script src="dark-mode-switch.min.js"></script>
-            <hr>
-            <div class="card">
-                <div class="card-header">
-                    <h2>Artigos</h2>
-                    <a class="btn btn-success" href="/admin/articles/new">Criar novo artigo</a>
+            <%- include('../../partials/darkSwitch.ejs') %>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Artigos</h2>
+                        <a class="btn btn-success" href="/admin/articles/new">Criar novo artigo</a>
+                    </div>
                 </div>
-            </div>
-            <hr>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Título</th>
-                        <th>Slug</th>
-                        <th>Categoria</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% articles.forEach(article => { %>
+                <hr>
+                <table class="table table-bordered">
+                    <thead>
                         <tr>
-                            <th>
-                                <%= article.id %>
-                            </th>
-                            <th>
-                                <%= article.title %>
-                            </th>
-                            <th>
-                                <%= article.slug %>
-                            </th>
-                            <th>
-                                <%= article.category.title %>
-                            </th>
-                            <th>
-                                <a href="/admin/articles/edit/<%= article.id %>" class="btn btn-warning">Editar</a>
-                                <form method="POST" action="/articles/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
-                                    <input type="hidden" name="id" value="<%= article.id %>">
-                                    <button class="btn btn-danger">Deletar</button>
-                                </form>
-                            </th>
+                            <th>Id</th>
+                            <th>Título</th>
+                            <th>Slug</th>
+                            <th>Categoria</th>
+                            <th>Ações</th>
                         </tr>
-                        <% }) %>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <% articles.forEach(article => { %>
+                            <tr>
+                                <th>
+                                    <%= article.id %>
+                                </th>
+                                <th>
+                                    <%= article.title %>
+                                </th>
+                                <th>
+                                    <%= article.slug %>
+                                </th>
+                                <th>
+                                    <%= article.category.title %>
+                                </th>
+                                <th>
+                                    <a href="/admin/articles/edit/<%= article.id %>" class="btn btn-warning">Editar</a>
+                                    <form method="POST" action="/articles/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
+                                        <input type="hidden" name="id" value="<%= article.id %>">
+                                        <button class="btn btn-danger">Deletar</button>
+                                    </form>
+                                </th>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
         </div>
         <%- include('../../partials/footer.ejs') %>
             <script>
